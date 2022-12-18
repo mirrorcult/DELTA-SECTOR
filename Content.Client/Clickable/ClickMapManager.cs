@@ -16,6 +16,9 @@ namespace Content.Client.Clickable
             "/Textures/LobbyScreens",
             "/Textures/Parallaxes",
             "/Textures/Logo",
+            "/Textures/_DS/Logo",
+            "/Textures/_DS/Parallaxes",
+            "/Textures/_DS/LobbyScreens"
         };
 
         private const float Threshold = 0.25f;
