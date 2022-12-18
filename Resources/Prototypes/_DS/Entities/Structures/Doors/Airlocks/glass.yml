@@ -1,0 +1,9 @@
+﻿- type: entity
+  parent: DSBayAirlockGlassBase
+  id: DSBayAirlockGlassMedical
+  suffix: BayMedical
+  components:
+  - type: Appearance
+  - type: BayAirlockVisuals
+    doorColor: '#ffffffff'
+    stripeColor: '#00e1ffff'
