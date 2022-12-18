@@ -1,7 +1,7 @@
 ﻿- type: entity
   parent: DSBayAirlockExternalBase
   id: DSBayAirlockExternal
-  suffix: BayExternalR
+  suffix: External, Red
   components:
   - type: Appearance
   - type: BayAirlockVisuals

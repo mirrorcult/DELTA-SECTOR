@@ -1,7 +1,7 @@
 ﻿- type: entity
-  parent: DSBayAirlockBase
+  parent: DSBayAirlockSolidBase
   id: DSBayAirlockCommand
-  suffix: BayCommand
+  suffix: Command, Solid
   components:
   - type: Appearance
   - type: BayAirlockVisuals
@@ -12,9 +12,9 @@
     LayoutId: AirlockCommand
 
 - type: entity
-  parent: DSBayAirlockBase
+  parent: DSBayAirlockSolidBase
   id: DSBayAirlockSecurity
-  suffix: BaySecurity
+  suffix: Security, Solid
   components:
   - type: Appearance
   - type: BayAirlockVisuals
@@ -25,9 +25,9 @@
     LayoutId: AirlockSecurity
 
 - type: entity
-  parent: DSBayAirlockBase
+  parent: DSBayAirlockSolidBase
   id: DSBayAirlockMedical
-  suffix: BayMedical
+  suffix: Medical, Solid
   components:
   - type: Appearance
   - type: BayAirlockVisuals
@@ -35,9 +35,9 @@
     stripeColor: '#00e1ffff'
 
 - type: entity
-  parent: DSBayAirlockBase
+  parent: DSBayAirlockSolidBase
   id: DSBayAirlockAtmos
-  suffix: BayAtmos
+  suffix: Atmos, Solid
   components:
   - type: Appearance
   - type: BayAirlockVisuals
@@ -45,9 +45,9 @@
     stripeColor: '#00ffffff'
 
 - type: entity
-  parent: DSBayAirlockBase
+  parent: DSBayAirlockSolidBase
   id: DSBayAirlockResearch
-  suffix: BayResearch
+  suffix: Research, Solid
   components:
   - type: Appearance
   - type: BayAirlockVisuals
