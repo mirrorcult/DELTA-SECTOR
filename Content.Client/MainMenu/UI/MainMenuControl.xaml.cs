@@ -25,7 +25,7 @@ namespace Content.Client.MainMenu.UI
                 LayoutContainer.SetMarginTop(VBox, 30);
                 LayoutContainer.SetGrowHorizontal(VBox, LayoutContainer.GrowDirection.Begin);
 
-                var logoTexture = resCache.GetResource<TextureResource>("/Textures/Logo/logo.png");
+                var logoTexture = resCache.GetResource<TextureResource>("/Textures/_DS/Logo/logo.png");
                 Logo.Texture = logoTexture;
 
                 var currentUserName = configMan.GetCVar(CVars.PlayerName);

@@ -1,6 +1,6 @@
 ### Connecting dialog when you start up the game
 
-connecting-title = Delta::Sector
+connecting-title = DELTA SECTOR
 connecting-exit = Exit
 connecting-retry = Retry
 connecting-reconnect = Reconnect

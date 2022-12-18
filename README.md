@@ -1,4 +1,4 @@
-Delta::Sector is a fork of Space Station 14.
+DELTA SECTOR is a fork of Space Station 14.
 
 ## Links
 
