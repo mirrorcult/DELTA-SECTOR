@@ -16,7 +16,7 @@ namespace Content.Shared.CCVar
         ///     Change this to have the changelog and rules "last seen" date stored separately.
         /// </summary>
         public static readonly CVarDef<string> ServerId =
-            CVarDef.Create("server.id", "delta::sector", CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("server.id", "DELTASECTOR", CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         ///     Name of the rules txt file in the "Resources/Server Info" dir. Include the extension.
@@ -1353,7 +1353,7 @@ namespace Content.Shared.CCVar
         /// Link to Discord server to show in the launcher.
         /// </summary>
         public static readonly CVarDef<string> InfoLinksDiscord =
-            CVarDef.Create("infolinks.discord", "", CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("infolinks.discord", "https://discord.gg/vrPhhhfstk ", CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         /// Link to website to show in the launcher.
@@ -1365,7 +1365,7 @@ namespace Content.Shared.CCVar
         /// Link to GitHub page to show in the launcher.
         /// </summary>
         public static readonly CVarDef<string> InfoLinksGithub =
-            CVarDef.Create("infolinks.github", "", CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("infolinks.github", "https://github.com/mirrorcult/DELTA-SECTOR", CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         /// Link to website to show in the launcher.
@@ -1389,7 +1389,7 @@ namespace Content.Shared.CCVar
         /// Link to the bug report form.
         /// </summary>
         public static readonly CVarDef<string> InfoLinksBugReport =
-            CVarDef.Create("infolinks.bug_report", "", CVar.SERVER | CVar.REPLICATED);
+            CVarDef.Create("infolinks.bug_report", "https://github.com/mirrorcult/DELTA-SECTOR/issues/new/choose", CVar.SERVER | CVar.REPLICATED);
 
         /*
          * CONFIG
