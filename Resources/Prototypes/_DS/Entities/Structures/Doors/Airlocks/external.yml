@@ -1,0 +1,8 @@
+﻿- type: entity
+  parent: DSBayAirlockExternalBase
+  id: DSBayAirlockExternal
+  suffix: External, Red
+  components:
+  - type: Appearance
+  - type: BayAirlockVisuals
+    doorColor: '#9d2300ff'

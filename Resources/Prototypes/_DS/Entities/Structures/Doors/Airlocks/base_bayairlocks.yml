@@ -1,0 +1,218 @@
+﻿- type: entity
+  id: DSBayAirlockBase
+  name: airlock
+  abstract: true
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.49,-0.49,0.49,0.49" # don't want this colliding with walls or they won't close
+      density: 100
+      mask:
+      - FullTileMask
+      layer:
+      - AirlockLayer
+  - type: Door
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/airlock_open.ogg
+    closeSound:
+      path: /Audio/Machines/airlock_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+  - type: Airlock
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+  - type: Weldable
+    fuel: 3
+    time: 3
+  - type: Appearance
+  - type: BayAirlockVisuals
+    delay: 0.6
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: Wires
+    BoardName: "Airlock Control"
+    LayoutId: Airlock
+  - type: UserInterface
+    interfaces:
+    - key: enum.WiresUiKey.Key
+      type: WiresBoundUserInterface
+  - type: Airtight
+    fixVacuum: true
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: Airlock
+    node: airlock
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  id: DSBayAirlockSolidBase
+  name: airlock
+  abstract: true
+  parent: DSBayAirlockBase
+  components:
+  - type: Occluder
+  - type: Sprite
+    netsync: false
+    layers:
+    - state: closed
+      sprite: _DS/Structures/Doors/Airlocks/Basic/door.rsi
+      map: [ "enum.BayDoorAnimatedLayers.Base" ]
+    - state: closed
+      sprite: _DS/Structures/Doors/Airlocks/Basic/color.rsi
+      map: [ "enum.BayDoorAnimatedLayers.Color" ]
+    - state: closed
+      sprite: _DS/Structures/Doors/Airlocks/Basic/fill_steel.rsi
+      map: [ "enum.BayDoorAnimatedLayers.ColorFill" ]
+    - state: closed
+      map: [ "enum.BayDoorAnimatedLayers.Stripe" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/stripe.rsi
+    - state: closed
+      map: [ "enum.BayDoorAnimatedLayers.StripeFill" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/fill_stripe.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.BoltLights" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/lights_bolts.rsi
+    - state: opening
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.GreenLights" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/lights_green.rsi
+    - state: deny
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.DenyLights" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/lights_deny.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.Emag" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/sparks_broken.rsi
+    - state: closed
+      map: [ "enum.BayDoorAncillaryLayers.Welded" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/welded.rsi
+      visible: false
+
+- type: entity
+  id: DSBayAirlockGlassBase
+  parent: DSBayAirlockBase
+  name: airlock
+  suffix: BayGlass
+  abstract: true
+  components:
+  - type: Sprite
+    netsync: false
+    layers:
+    - state: closed
+      sprite: _DS/Structures/Doors/Airlocks/Basic/door.rsi
+      map: ["enum.BayDoorAnimatedLayers.Base"]
+    - state: closed
+      sprite: _DS/Structures/Doors/Airlocks/Basic/color.rsi
+      map: ["enum.BayDoorAnimatedLayers.Color"]
+    - state: closed
+      sprite: _DS/Structures/Doors/Airlocks/Basic/fill_glass.rsi
+      map: ["enum.BayDoorAnimatedLayers.ColorFill"]
+    - state: closed
+      map: ["enum.BayDoorAnimatedLayers.Stripe"]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/stripe.rsi
+    - state: closed
+      map: [ "enum.BayDoorAnimatedLayers.StripeFill" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/fill_stripe.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.BoltLights" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/lights_bolts.rsi
+    - state: opening
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.GreenLights" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/lights_green.rsi
+    - state: deny
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.DenyLights" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/lights_deny.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.Emag" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/sparks_broken.rsi
+    - state: closed
+      map: [ "enum.BayDoorAncillaryLayers.Welded" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/welded.rsi
+      visible: false
+
+- type: entity
+  id: DSBayAirlockExternalBase
+  parent: DSBayAirlockBase
+  name: external airlock
+  suffix: BayExternal
+  abstract: true
+  components:
+  - type: Occluder
+  - type: Sprite
+    netsync: false
+    layers:
+    - state: closed
+      sprite: _DS/Structures/Doors/Airlocks/External/door.rsi
+      map: ["enum.BayDoorAnimatedLayers.Base"]
+    - state: closed
+      sprite: _DS/Structures/Doors/Airlocks/External/color.rsi
+      map: ["enum.BayDoorAnimatedLayers.Color"]
+    - state: closed
+      sprite: _DS/Structures/Doors/Airlocks/External/fill_steel.rsi
+      map: ["enum.BayDoorAnimatedLayers.ColorFill"]
+    - state: closed
+      map: ["enum.BayDoorAnimatedLayers.Stripe"]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/stripe.rsi
+      visible: false
+    - state: closed
+      map: [ "enum.BayDoorAnimatedLayers.StripeFill" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/fill_stripe.rsi
+      visible: false
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.BoltLights" ]
+      sprite: _DS/Structures/Doors/Airlocks/External/lights_bolts.rsi
+    - state: opening
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.GreenLights" ]
+      sprite: _DS/Structures/Doors/Airlocks/External/lights_green.rsi
+    - state: deny
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.DenyLights" ]
+      sprite: _DS/Structures/Doors/Airlocks/External/lights_deny.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.Emag" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/sparks_broken.rsi
+    - state: closed
+      map: [ "enum.BayDoorAncillaryLayers.Welded" ]
+      sprite: _DS/Structures/Doors/Airlocks/Basic/welded.rsi
+      visible: false
